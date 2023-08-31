@@ -310,7 +310,7 @@ app.put("/todos/:todoId/", async (request, response) => {
 
     case request.body.priority !== undefined:
       if (priority === "HIGH" || priority === "MEDIUM" || priority === "LOW") {
-        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId};`;
+        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId}';`;
         await db.run(updateTodoQuery);
         response.send("Priority Updated");
       } else {
@@ -331,7 +331,7 @@ app.put("/todos/:todoId/", async (request, response) => {
         category === "HOME" ||
         category === "LEARNING"
       ) {
-        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId};`;
+        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId}';`;
         await db.run(updateTodoQuery);
         response.send("Category Updated");
       } else {
@@ -343,7 +343,7 @@ app.put("/todos/:todoId/", async (request, response) => {
     case request.body.dueDate !== undefined:
       if (isMatch(dueDate, "yyyy-MM-dd")) {
         const newDueDate = format(new Date(dueDate), "yyyy-MM-dd");
-        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId};`;
+        updateTodoQuery = `UPDATE todo SET todo = '${todo}', priority = '${priority}', status = '${status}', category = '${category}' WHERE id = '${todoId}';`;
         await db.run(updateTodoQuery);
         response.send("Due Date Updated");
       } else {
